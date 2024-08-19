@@ -2,7 +2,7 @@
 
 Storyteller is an advanced, modular system designed for orchestrating Large Language Models (LLMs) in batch processes. While it originated as a tool for generating synthetic narrative data, it has evolved into a flexible and powerful framework for managing complex LLM-driven workflows across various domains and use cases.
 
-**Note:** Storyteller is currently in alpha and may be difficult to get running. 
+**Note:** Storyteller is currently in alpha and may be difficult to get running. Parts of it are non-functional or not fully tested. 
 
 **Warning:** This system can consume a significant number of tokens if not used carefully, monitor usage carefully if you are using a paid LLM.
 
