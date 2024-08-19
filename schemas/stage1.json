@@ -1,0 +1,1517 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "storyteller-output": {
+            "type": "object",
+            "properties": {
+                "version": {
+                    "type": "string",
+                    "pattern": "^v(\\d+\\.\\d+\\.\\d+)$",
+                    "description": "The version of the schema, adhering to semantic versioning."
+                },
+                "phase": {
+                    "type": "string",
+                    "enum": [
+                        "World Building"
+                    ],
+                    "description": "Defines the current phase of the storytelling or world-building process."
+                },
+                "input-parameters": {
+                    "type": "object",
+                    "properties": {
+                        "genre": {
+                            "type": "string",
+                            "description": "Genre of the story or world."
+                        },
+                        "setting": {
+                            "type": "string",
+                            "description": "The setting or environment of the world."
+                        },
+                        "themes": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2,
+                            "description": "Core themes that will drive the narrative elements of the world."
+                        },
+                        "world-building-elements": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 3,
+                            "maxItems": 3,
+                            "description": "Key elements that contribute to the structure of the world."
+                        },
+                        "plot-devices": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2,
+                            "description": "Plot devices used to advance the story or enrich the narrative."
+                        },
+                        "conflicts": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 2,
+                            "maxItems": 2,
+                            "description": "Major conflicts that drive the narrative within the world."
+                        },
+                        "narrative-hooks": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "minItems": 1,
+                            "maxItems": 1,
+                            "description": "Narrative hooks that grab the attention of the audience."
+                        },
+                        "emotional-tone": {
+                            "type": "string",
+                            "description": "The overall emotional tone of the world or story."
+                        },
+                        "content-rating": {
+                            "type": "string",
+                            "description": "Content rating to categorize the suitability of the world or story for different audiences."
+                        }
+                    },
+                    "required": [
+                        "genre",
+                        "setting",
+                        "themes",
+                        "world-building-elements",
+                        "plot-devices",
+                        "conflicts",
+                        "narrative-hooks",
+                        "emotional-tone",
+                        "content-rating"
+                    ],
+                    "additionalProperties": false
+                },
+                "world-building": {
+                    "type": "object",
+                    "properties": {
+                        "core-concept": {
+                            "type": "object",
+                            "properties": {
+                                "world-description": {
+                                    "type": "string",
+                                    "description": "Detailed description of the world."
+                                },
+                                "themes": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "example": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "description",
+                                            "example"
+                                        ]
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 2,
+                                    "description": "Central themes of the world explained through examples."
+                                },
+                                "genre-integration": {
+                                    "type": "string",
+                                    "description": "How the genre is integrated into the world's elements."
+                                },
+                                "emotional-tone-reflections": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 5,
+                                    "description": "Reflections of the emotional tone through various world aspects."
+                                },
+                                "initial-conflicts": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 4,
+                                    "description": "Initial conflicts introduced in the world."
+                                },
+                                "narrative-hook-integration": {
+                                    "type": "string",
+                                    "description": "Integration of narrative hooks into the storyline."
+                                },
+                                "content-rating-considerations": {
+                                    "type": "string",
+                                    "description": "Considerations for content rating based on world elements."
+                                },
+                                "unique-world-elements": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Unique elements that define the world."
+                                }
+                            },
+                            "required": [
+                                "world-description",
+                                "themes",
+                                "genre-integration",
+                                "emotional-tone-reflections",
+                                "initial-conflicts",
+                                "narrative-hook-integration",
+                                "content-rating-considerations",
+                                "unique-world-elements"
+                            ],
+                            "additionalProperties": false
+                        },
+                        "physical-world": {
+                            "type": "object",
+                            "properties": {
+                                "geographic-overview": {
+                                    "type": "string",
+                                    "description": "A broad description of the world's geography."
+                                },
+                                "climate-zones": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "geographic-relation": {
+                                                "type": "string"
+                                            },
+                                            "impact": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "description",
+                                            "geographic-relation",
+                                            "impact"
+                                        ]
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 4,
+                                    "description": "Different climate zones within the world and their effects on the region."
+                                },
+                                "flora": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "habitat": {
+                                                "type": "string"
+                                            },
+                                            "properties": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "description",
+                                            "habitat",
+                                            "properties"
+                                        ]
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 5,
+                                    "description": "The types of plant life in the world and their characteristics."
+                                },
+                                "fauna": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "habitat": {
+                                                "type": "string"
+                                            },
+                                            "behavior": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "description",
+                                            "habitat",
+                                            "behavior"
+                                        ]
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 5,
+                                    "description": "Animal life and their behaviors within their specific habitats."
+                                },
+                                "natural-resources": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "location": {
+                                                "type": "string"
+                                            },
+                                            "importance": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "description",
+                                            "location",
+                                            "importance"
+                                        ]
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 4,
+                                    "description": "Important natural resources, their locations, and significance."
+                                },
+                                "environmental-challenges": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "affected-areas": {
+                                                "type": "string"
+                                            },
+                                            "impact": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "description",
+                                            "affected-areas",
+                                            "impact"
+                                        ]
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Environmental challenges and their effects on different regions."
+                                },
+                                "sensory-landscape": {
+                                    "type": "object",
+                                    "properties": {
+                                        "sights": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "minItems": 3,
+                                            "maxItems": 3,
+                                            "description": "Visual elements that are characteristic of the world."
+                                        },
+                                        "sounds": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "minItems": 2,
+                                            "maxItems": 2,
+                                            "description": "Distinctive sounds that define the auditory landscape of the world."
+                                        },
+                                        "scents": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "minItems": 2,
+                                            "maxItems": 2,
+                                            "description": "Characteristic scents associated with various locations in the world."
+                                        },
+                                        "taste": {
+                                            "type": "string",
+                                            "description": "Common tastes associated with the world, such as typical flavors found in its cuisine."
+                                        },
+                                        "touch": {
+                                            "type": "string",
+                                            "description": "Textural elements characteristic of the world's environment."
+                                        }
+                                    },
+                                    "required": [
+                                        "sights",
+                                        "sounds",
+                                        "scents",
+                                        "taste",
+                                        "touch"
+                                    ],
+                                    "additionalProperties": false
+                                }
+                            },
+                            "required": [
+                                "geographic-overview",
+                                "climate-zones",
+                                "flora",
+                                "fauna",
+                                "natural-resources",
+                                "environmental-challenges",
+                                "sensory-landscape"
+                            ],
+                            "additionalProperties": false
+                        },
+                        "historical-timeline": {
+                            "type": "object",
+                            "properties": {
+                                "eras": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "timespan": {
+                                                "type": "string"
+                                            },
+                                            "key-characteristics": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "timespan",
+                                            "key-characteristics"
+                                        ]
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 5,
+                                    "description": "Major historical eras of the world and their defining characteristics."
+                                },
+                                "pivotal-events": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "date": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "consequences": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "date",
+                                            "description",
+                                            "consequences"
+                                        ]
+                                    },
+                                    "minItems": 5,
+                                    "maxItems": 7,
+                                    "description": "Significant events that have shaped the history and trajectory of the world."
+                                },
+                                "cultural-evolution": {
+                                    "type": "string",
+                                    "description": "An overview of how the culture(s) within the world have evolved over time."
+                                },
+                                "technological-magical-progression": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "date": {
+                                                "type": "string"
+                                            },
+                                            "impact": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "date",
+                                            "impact"
+                                        ]
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 5,
+                                    "description": "Progression of technology and magic in the world, highlighting key developments."
+                                },
+                                "major-conflicts": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "parties-involved": {
+                                                "type": "string"
+                                            },
+                                            "cause": {
+                                                "type": "string"
+                                            },
+                                            "outcome": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "parties-involved",
+                                            "cause",
+                                            "outcome"
+                                        ]
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Major conflicts and their effects on the world's history and development."
+                                },
+                                "historical-figures": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "era": {
+                                                "type": "string"
+                                            },
+                                            "contributions": {
+                                                "type": "string"
+                                            },
+                                            "legacy": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "era",
+                                            "contributions",
+                                            "legacy"
+                                        ]
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Influential figures in the world's history and their legacies."
+                                },
+                                "mysteries-debates": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "topic": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "significance": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "topic",
+                                            "description",
+                                            "significance"
+                                        ]
+                                    },
+                                    "minItems": 1,
+                                    "maxItems": 2,
+                                    "description": "Key mysteries and debates that are central to the historical narrative of the world."
+                                }
+                            },
+                            "required": [
+                                "eras",
+                                "pivotal-events",
+                                "cultural-evolution",
+                                "technological-magical-progression",
+                                "major-conflicts",
+                                "historical-figures",
+                                "mysteries-debates"
+                            ],
+                            "additionalProperties": false
+                        },
+                        "societal-structures": {
+                            "type": "object",
+                            "properties": {
+                                "government-systems": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "key-features": {
+                                                "type": "string"
+                                            },
+                                            "establishment": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "type",
+                                            "key-features",
+                                            "establishment"
+                                        ]
+                                    },
+                                    "minItems": 1,
+                                    "maxItems": 3,
+                                    "description": "The types of governmental systems in place within the world and their main features."
+                                },
+                                "social-hierarchy": {
+                                    "type": "string",
+                                    "description": "Description of the social hierarchy and class structure within the world."
+                                },
+                                "economic-system": {
+                                    "type": "string",
+                                    "description": "Overview of the economic systems governing the world's societies."
+                                },
+                                "legal-system": {
+                                    "type": "string",
+                                    "description": "Outline of the legal frameworks and their implications for the inhabitants."
+                                },
+                                "power-centers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "influence": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "description",
+                                            "influence"
+                                        ]
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 5,
+                                    "description": "Key power centers within the world and their influence on politics and society."
+                                },
+                                "marginalized-groups": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "challenges": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "description",
+                                            "challenges"
+                                        ]
+                                    },
+                                    "minItems": 1,
+                                    "maxItems": 2,
+                                    "description": "Groups within the society that are marginalized or face specific challenges."
+                                },
+                                "education-system": {
+                                    "type": "string",
+                                    "description": "Details of the educational systems and their roles in societal development."
+                                },
+                                "cultural-institutions": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "purpose": {
+                                                "type": "string"
+                                            },
+                                            "influence": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "purpose",
+                                            "influence"
+                                        ]
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Prominent cultural institutions and their influence on the society."
+                                }
+                            },
+                            "required": [
+                                "government-systems",
+                                "social-hierarchy",
+                                "economic-system",
+                                "legal-system",
+                                "power-centers",
+                                "marginalized-groups",
+                                "education-system",
+                                "cultural-institutions"
+                            ],
+                            "additionalProperties": false
+                        },
+                        "cultural-elements": {
+                            "type": "object",
+                            "properties": {
+                                "belief-systems": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "core-tenets": {
+                                                "type": "string"
+                                            },
+                                            "practices": {
+                                                "type": "string"
+                                            },
+                                            "influence": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "core-tenets",
+                                            "practices",
+                                            "influence"
+                                        ]
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Major belief systems within the world and their influences on culture and society."
+                                },
+                                "customs-traditions": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "significance": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "description",
+                                            "significance"
+                                        ]
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 4,
+                                    "description": "Customs and traditions that are significant within the world."
+                                },
+                                "arts-entertainment": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "form": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "role": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "form",
+                                            "description",
+                                            "role"
+                                        ]
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Forms of arts and entertainment and their roles in the society."
+                                },
+                                "social-norms": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "norm": {
+                                                "type": "string"
+                                            },
+                                            "enforcement": {
+                                                "type": "string"
+                                            },
+                                            "consequences": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "norm",
+                                            "enforcement",
+                                            "consequences"
+                                        ]
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 4,
+                                    "description": "Social norms and the mechanisms by which they are enforced."
+                                }
+                            },
+                            "required": [
+                                "belief-systems",
+                                "customs-traditions",
+                                "arts-entertainment",
+                                "social-norms"
+                            ],
+                            "additionalProperties": false
+                        },
+                        "technology-magic-systems": {
+                            "type": "object",
+                            "properties": {
+                                "system-overview": {
+                                    "type": "string",
+                                    "description": "Overview of the technological and magical systems in the world."
+                                },
+                                "key-elements": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "capabilities": {
+                                                "type": "string"
+                                            },
+                                            "limitations": {
+                                                "type": "string"
+                                            },
+                                            "impact": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "description",
+                                            "capabilities",
+                                            "limitations",
+                                            "impact"
+                                        ]
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 4,
+                                    "description": "Key elements of the technology and magic systems, including their capabilities and limitations."
+                                },
+                                "rules-limitations": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "rule": {
+                                                "type": "string"
+                                            },
+                                            "explanation": {
+                                                "type": "string"
+                                            },
+                                            "consequences": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "rule",
+                                            "explanation",
+                                            "consequences"
+                                        ]
+                                    },
+                                    "minItems": 4,
+                                    "maxItems": 5,
+                                    "description": "Rules and limitations governing the use of technology and magic."
+                                },
+                                "distribution-access": {
+                                    "type": "string",
+                                    "description": "How technology and magic are distributed and accessed within the world."
+                                },
+                                "physical-world-interactions": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Interactions between the technological/magical systems and the physical world."
+                                }
+                            },
+                            "required": [
+                                "system-overview",
+                                "key-elements",
+                                "rules-limitations",
+                                "distribution-access",
+                                "physical-world-interactions"
+                            ],
+                            "additionalProperties": false
+                        },
+                        "world-dynamics": {
+                            "type": "object",
+                            "properties": {
+                                "global-tensions": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "involved-parties": {
+                                                "type": "string"
+                                            },
+                                            "consequences": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "description",
+                                            "involved-parties",
+                                            "consequences"
+                                        ]
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Global tensions and their implications for world stability and politics."
+                                },
+                                "resource-conflicts": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "resource": {
+                                                "type": "string"
+                                            },
+                                            "parties": {
+                                                "type": "string"
+                                            },
+                                            "impact": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "resource",
+                                            "parties",
+                                            "impact"
+                                        ]
+                                    },
+                                    "minItems": 1,
+                                    "maxItems": 2,
+                                    "description": "Conflicts over resources, parties involved, and their broader impacts."
+                                },
+                                "ideological-struggles": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "manifestation": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "description",
+                                            "manifestation"
+                                        ]
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 2,
+                                    "description": "Major ideological struggles within the world and how they manifest."
+                                },
+                                "technological-magical-dilemmas": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "dilemma": {
+                                                "type": "string"
+                                            },
+                                            "stakeholders": {
+                                                "type": "string"
+                                            },
+                                            "potential-resolutions": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "dilemma",
+                                            "stakeholders",
+                                            "potential-resolutions"
+                                        ]
+                                    },
+                                    "minItems": 1,
+                                    "maxItems": 2,
+                                    "description": "Dilemmas arising from the use of technology and magic, including potential solutions."
+                                },
+                                "social-unrest": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "cause": {
+                                                "type": "string"
+                                            },
+                                            "affected-populations": {
+                                                "type": "string"
+                                            },
+                                            "potential-escalation": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "cause",
+                                            "affected-populations",
+                                            "potential-escalation"
+                                        ]
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Sources of social unrest, affected groups, and possible escalations."
+                                },
+                                "emerging-threats": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "threat": {
+                                                "type": "string"
+                                            },
+                                            "current-perception": {
+                                                "type": "string"
+                                            },
+                                            "potential-consequences": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "threat",
+                                            "current-perception",
+                                            "potential-consequences"
+                                        ]
+                                    },
+                                    "minItems": 1,
+                                    "maxItems": 2,
+                                    "description": "Emerging threats to the world, public perceptions, and potential impacts."
+                                }
+                            },
+                            "required": [
+                                "global-tensions",
+                                "resource-conflicts",
+                                "ideological-struggles",
+                                "technological-magical-dilemmas",
+                                "social-unrest",
+                                "emerging-threats"
+                            ],
+                            "additionalProperties": false
+                        },
+                        "languages-communication": {
+                            "type": "object",
+                            "properties": {
+                                "major-languages": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "speakers": {
+                                                "type": "string"
+                                            },
+                                            "characteristics": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "speakers",
+                                            "characteristics"
+                                        ]
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Major languages spoken in the world and their characteristics."
+                                },
+                                "language-families": {
+                                    "type": "string",
+                                    "description": "Overview of the language families within the world."
+                                },
+                                "writing-systems": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "users": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "type",
+                                            "description",
+                                            "users"
+                                        ]
+                                    },
+                                    "minItems": 1,
+                                    "maxItems": 2,
+                                    "description": "Writing systems used within the world and their user demographics."
+                                },
+                                "non-verbal-communication": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "method": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "significance": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "method",
+                                            "description",
+                                            "significance"
+                                        ]
+                                    },
+                                    "minItems": 1,
+                                    "maxItems": 2,
+                                    "description": "Non-verbal communication methods and their significance within different cultures of the world."
+                                },
+                                "language-and-power": {
+                                    "type": "string",
+                                    "description": "The role of language in power dynamics within the world."
+                                },
+                                "unique-linguistic-features": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "feature": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "impact": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "feature",
+                                            "description",
+                                            "impact"
+                                        ]
+                                    },
+                                    "minItems": 1,
+                                    "maxItems": 2,
+                                    "description": "Unique linguistic features that define or distinguish specific languages or dialects."
+                                }
+                            },
+                            "required": [
+                                "major-languages",
+                                "language-families",
+                                "writing-systems",
+                                "non-verbal-communication",
+                                "language-and-power",
+                                "unique-linguistic-features"
+                            ],
+                            "additionalProperties": false
+                        },
+                        "world-interconnections": {
+                            "type": "object",
+                            "properties": {
+                                "key-interconnections": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "elements": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "consequences": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "elements",
+                                            "description",
+                                            "consequences"
+                                        ]
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 4,
+                                    "description": "Key interconnections between different elements of the world and their consequences."
+                                },
+                                "emergent-themes": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Emerging themes that are becoming significant in the world's evolving narrative."
+                                },
+                                "character-archetypes": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "potential-conflicts": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "description",
+                                            "potential-conflicts"
+                                        ]
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 4,
+                                    "description": "Character archetypes common in the world and the conflicts they typically encounter."
+                                },
+                                "story-seeds": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "concept": {
+                                                "type": "string"
+                                            },
+                                            "world-elements": {
+                                                "type": "string"
+                                            },
+                                            "potential-stakes": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "concept",
+                                            "world-elements",
+                                            "potential-stakes"
+                                        ]
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 4,
+                                    "description": "Narrative ideas or seeds that could potentially develop into larger storylines."
+                                },
+                                "world-mysteries": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "mystery": {
+                                                "type": "string"
+                                            },
+                                            "significance": {
+                                                "type": "string"
+                                            },
+                                            "potential-implications": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "mystery",
+                                            "significance",
+                                            "potential-implications"
+                                        ]
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Mysteries within the world that hold significant narrative potential."
+                                },
+                                "future-developments": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "development": {
+                                                "type": "string"
+                                            },
+                                            "catalysts": {
+                                                "type": "string"
+                                            },
+                                            "potential-impact": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "development",
+                                            "catalysts",
+                                            "potential-impact"
+                                        ]
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Potential future developments and the catalysts that might trigger them."
+                                }
+                            },
+                            "required": [
+                                "key-interconnections",
+                                "emergent-themes",
+                                "character-archetypes",
+                                "story-seeds",
+                                "world-mysteries",
+                                "future-developments"
+                            ],
+                            "additionalProperties": false
+                        },
+                        "world-consistency": {
+                            "type": "object",
+                            "properties": {
+                                "identified-inconsistencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "elements": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            },
+                                            "resolution": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "elements",
+                                            "description",
+                                            "resolution"
+                                        ]
+                                    },
+                                    "description": "Inconsistencies identified within the world and their resolutions."
+                                },
+                                "refined-elements": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "element": {
+                                                "type": "string"
+                                            },
+                                            "refinement": {
+                                                "type": "string"
+                                            },
+                                            "reason": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "element",
+                                            "refinement",
+                                            "reason"
+                                        ]
+                                    },
+                                    "minItems": 3,
+                                    "maxItems": 4,
+                                    "description": "Elements of the world that have been refined, along with the reasons for these changes."
+                                },
+                                "identified-gaps": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "area": {
+                                                "type": "string"
+                                            },
+                                            "importance": {
+                                                "type": "string"
+                                            },
+                                            "suggested-development": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "area",
+                                            "importance",
+                                            "suggested-development"
+                                        ]
+                                    },
+                                    "minItems": 2,
+                                    "maxItems": 3,
+                                    "description": "Gaps identified in the world-building process, their importance, and suggested ways to address them."
+                                },
+                                "world-cohesion-assessment": {
+                                    "type": "string",
+                                    "description": "An assessment of how cohesively the various elements of the world fit together."
+                                }
+                            },
+                            "required": [
+                                "identified-inconsistencies",
+                                "refined-elements",
+                                "identified-gaps",
+                                "world-cohesion-assessment"
+                            ],
+                            "additionalProperties": false
+                        },
+                        "world-bible": {
+                            "type": "string",
+                            "description": "A comprehensive document detailing all aspects of the world for reference."
+                        }
+                    },
+                    "required": [
+                        "core-concept",
+                        "physical-world",
+                        "historical-timeline",
+                        "societal-structures",
+                        "cultural-elements",
+                        "technology-magic-systems",
+                        "world-dynamics",
+                        "languages-communication",
+                        "world-interconnections",
+                        "world-consistency",
+                        "world-bible"
+                    ],
+                    "additionalProperties": false
+                },
+                "change-history": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "changed-element": {
+                                "type": "string",
+                                "description": "The element of the world that was changed."
+                            },
+                            "phase": {
+                                "type": "string",
+                                "description": "The phase during which the change occurred."
+                            },
+                            "original-value": {
+                                "type": "string",
+                                "description": "The original value of the changed element before modification."
+                            },
+                            "new-value": {
+                                "type": "string",
+                                "description": "The new value of the changed element after modification."
+                            },
+                            "reason": {
+                                "type": "string",
+                                "description": "The reason for the change."
+                            }
+                        },
+                        "required": [
+                            "changed-element",
+                            "phase",
+                            "original-value",
+                            "new-value",
+                            "reason"
+                        ],
+                        "additionalProperties": false
+                    },
+                    "description": "History of changes made to the world-building elements."
+                }
+            },
+            "required": [
+                "version",
+                "phase",
+                "input-parameters",
+                "world-building",
+                "change-history"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "required": [
+        "storyteller-output"
+    ],
+    "additionalProperties": false
+}

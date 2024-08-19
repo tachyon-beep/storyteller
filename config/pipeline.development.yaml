@@ -1,0 +1,344 @@
+paths:
+  root: "/home/john/storyteller/"
+  src: "src/"
+  config: "config/"
+  data: "data/"
+  plugins: "plugins/"
+  prompts: "prompts/"
+  schemas: "schemas/"
+  batch_storage: "batch/"
+  ephemeral_storage: "ephemeral/"
+  output_folder: "output/"
+
+batch:
+  size: 1
+  name: "Test" # The name for the batch
+  starting_id: 0
+
+# This is for future use
+cache:
+  enabled: true
+  max_size: 1000
+  ttl: 180 # TTL
+
+content_processing:
+  default_max_retries: 3
+
+guidance:
+  folder: "guidance/"
+  generic:
+    tag: "generic"
+    path: "generic.md"
+
+llm:
+  type: "google_vertex_ai"
+  default_temperature: 1.4
+  pass_schema: false #Pass a schema to the model if the phase specifies one - Depending on which LLM you use, this is super glitchy.
+  max_output_tokens: 10000 # This doesn't work the way it seems. It's not a guide, its a hard cap that causes execution to fail when exceeded.  The system will gracefully handle outputs that exceed this limit if it is not set.
+  autocontinue: true #autocontinue if we hit max content length
+  max_continues: 5
+  max_retries: 3
+  config:
+    project_id: "storyteller-423104"
+    location: "us-central1"
+    model: "gemini-1.5-pro-001"
+
+plugins:
+  text:
+    enabled: true
+    file: "text_plugin"
+    class_name: "TextOutputPlugin"
+    tag: None
+    guidance: None
+    repair: false # It's not even technically possible for plain text to fail validation.
+    retry: true
+  list:
+    enabled: true
+    debug: true
+    file: "list_plugin"
+    class_name: "ListOutputPlugin"
+    guidance: "list.md"
+    tag: "LIST"
+    repair: false
+    retry: true
+  json:
+    enabled: true
+    debug: true # This is debugging the outputs of the plugin so its useful for prompt management as well.
+    file: "json_plugin"
+    class_name: "JsonOutputPlugin"
+    default_schema: "json_schema.json"
+    guidance: "json.md"
+    tag: "JSON"
+    repair: true
+    repair_prompt: "json_repair.md"
+    retry: true
+
+    # TODO Abort/Retry bool, guidance path
+
+stages:
+  - name: WORLD_BUILDING
+    display_name: "World Building"
+    description: "Create the foundational elements of the story and world, including setting, genre, and key themes."
+    order: 1
+    enabled: true
+    guidance: stage1.md
+    phases:
+      - name: A
+        prompt_file: phase1a.md
+        plugin: list
+      - name: B
+        prompt_file: phase1b.md
+        plugin: list
+      - name: C
+        prompt_file: phase1c.md
+        plugin: list
+      - name: D
+        prompt_file: phase1d.md
+        plugin: list
+      - name: E
+        prompt_file: phase1e.md
+        plugin: list
+      - name: F
+        prompt_file: phase1f.md
+        plugin: list
+      - name: G
+        prompt_file: phase1g.md
+        plugin: list
+      - name: H
+        prompt_file: phase1h.md
+        plugin: list
+      - name: I
+        prompt_file: phase1i.md
+        plugin: list
+      - name: J
+        prompt_file: phase1j.md
+        plugin: list
+      - name: K
+        prompt_file: phase1k.md
+        plugin: list
+      - name: L
+        prompt_file: phase1l.md
+        plugin: list
+      - name: M
+        prompt_file: phase1m.md
+        temperature: 1.0
+        plugin: json
+        schema: stage1.json
+  - name: MAIN_CHARACTER_DESIGN
+    display_name: "Main Character Design"
+    description: "Develop the main characters, their backgrounds, motivations, and relationships."
+    order: 2
+    enabled: false
+    guidance: stage2.md
+    phases:
+      - name: A
+        prompt_file: phase2a.md
+        plugin: list
+      - name: B
+        prompt_file: phase2b.md
+        plugin: list
+      - name: C
+        prompt_file: phase2c.md
+        temperature: 1.0
+        plugin: json
+        schema: stage2.json
+
+  - name: SIDE_CHARACTER_DESIGN
+    display_name: "Side Character Design"
+    description: "Develop the side characters, their backgrounds, motivations, and relationships."
+    order: 3
+    enabled: false
+    guidance: stage3.md
+    phases:
+      - name: A
+        prompt_file: phase3a.md
+        plugin: list
+      - name: B
+        prompt_file: phase3b.md
+        plugin: list
+      - name: C
+        prompt_file: phase3c.md
+        temperature: 1.0
+        plugin: json
+        schema: stage3.json
+
+  - name: MAIN_CHARACTER_RELATIONSHIPS
+    display_name: "Main Character Personal Relationships and Immediate Social Circles"
+    description: "Develop the personal and societal relationships for the Main Characters"
+    order: 4
+    enabled: false
+    guidance: stage4.md
+    phases:
+      - name: A
+        prompt_file: phase4a.md
+        plugin: list
+      - name: B
+        prompt_file: phase4b.md
+        plugin: list
+      - name: C
+        prompt_file: phase4c.md
+        temperature: 1.0
+        plugin: json
+        schema: stage4.json
+
+  - name: SCENARIO_AND_CONFLICTS
+    display_name: "Scenario and Conflicts"
+    description: "Establish the main plot scenarios and central conflicts driving the story."
+    order: 5
+    enabled: false
+    guidance: stage5.md
+    phases:
+      - name: A
+        prompt_file: phase5a.md
+        plugin: list
+      - name: B
+        prompt_file: phase5b.md
+        plugin: list
+      - name: C
+        prompt_file: phase5c.md
+        temperature: 1.0
+        plugin: json
+        schema: stage5.json
+
+  - name: NARRATIVE_DESIGN
+    display_name: "Narrative Design"
+    description: "Structure the overall narrative, including plot points, pacing, and story arcs."
+    order: 6
+    enabled: false
+    guidance: stage6.md
+    phases:
+      - name: A
+        prompt_file: phase6a.md
+        plugin: list
+      - name: B
+        prompt_file: phase6b.md
+        plugin: list
+      - name: C
+        prompt_file: phase6c.md
+        temperature: 1.0
+        plugin: json
+        schema: stage6.json
+
+  - name: FUTURE_DEVELOPMENTS
+    display_name: "Future Developments"
+    description: "Explore potential future plot developments and story expansions."
+    order: 7
+    enabled: false
+    guidance: stage7.md
+    phases:
+      - name: A
+        prompt_file: phase7a.md
+        plugin: list
+      - name: B
+        prompt_file: phase7b.md
+        plugin: list
+      - name: C
+        prompt_file: phase7c.md
+        temperature: 1.0
+        plugin: json
+        schema: stage7.json
+
+  - name: QUALITY_ASSESSMENT
+    display_name: "Quality Assessment"
+    description: "Evaluate the generated content for coherence, engagement, and overall quality."
+    order: 8
+    enabled: false
+    guidance: stage8.md
+    phases:
+      - name: A
+        prompt_file: phase8a.md
+        plugin: list
+      - name: B
+        prompt_file: phase8b.md
+        plugin: list
+      - name: C
+        prompt_file: phase8c.md
+        temperature: 1.0
+        plugin: json
+        schema: stage8.json
+
+  - name: FINAL_REVIEW
+    display_name: "Final Review"
+    description: "Conduct a comprehensive review of all generated content, ensuring consistency and completeness."
+    order: 9
+    enabled: false
+    guidance: stage9.md
+    phases:
+      - name: A
+        prompt_file: phase9a.md
+        plugin: list
+      - name: B
+        prompt_file: phase9b.md
+        plugin: list
+      - name: C
+        prompt_file: phase9c.md
+        temperature: 1.0
+        plugin: json
+        schema: stage9.json
+
+placeholders:
+  genres:
+    tag: "{GENRE}"
+    source: "genres.json"
+    allow_duplicates: false
+    count: 1
+  settings:
+    tag: "{SETTING}"
+    source: "settings.json"
+    allow_duplicates: false
+    count: 1
+  themes:
+    tag: "{THEMES}"
+    source: "themes.json"
+    allow_duplicates: false
+    count: 3
+  world_building:
+    tag: "{WORLD_BUILDING}"
+    source: "world_building_elements.json"
+    allow_duplicates: false
+    count: 5
+  plot_devices:
+    tag: "{PLOT_DEVICES}"
+    source: "plot_devices.json"
+    allow_duplicates: false
+    count: 4
+  plot_conflicts:
+    tag: "{PLOT_CONFLICTS}"
+    source: "conflicts.json"
+    allow_duplicates: false
+    count: 4
+  narrative_hooks:
+    tag: "{NARRATIVE_HOOKS}"
+    source: "narrative_hooks.json"
+    allow_duplicates: false
+    count: 2
+  emotional_tones:
+    tag: "{EMOTIONAL_TONES}"
+    source: "emotional_tones.json"
+    allow_duplicates: false
+    count: 2
+  rating:
+    tag: "{RATING}"
+    source: "rating.json"
+    allow_duplicates: false
+    count: 1
+  occupations:
+    tag: "{OCCUPATIONS}"
+    source: "occupations.json"
+    allow_duplicates: true
+    count: 6
+  archetypes:
+    tag: "{ARCHETYPES}"
+    source: "archetypes.json"
+    allow_duplicates: false
+    count: 6
+  traits:
+    tag: "{TRAITS}"
+    source: "traits.json"
+    allow_duplicates: false
+    count: 10
+  character_development:
+    tag: "{CHARACTER_DEVELOPMENT}"
+    source: "development.json"
+    allow_duplicates: false
+    count: 5
