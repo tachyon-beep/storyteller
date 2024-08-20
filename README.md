@@ -4,7 +4,7 @@ Storyteller is an advanced, modular system designed for orchestrating Large Lang
 
 **Note:** Storyteller is currently in alpha and may be difficult to get running. Parts of it are non-functional or not fully tested. 
 
-**Warning:** This system can consume a significant number of tokens if not used carefully, monitor usage carefully if you are using a paid LLM.
+**Warning:** This system can consume a significant number of tokens if not used carefully, monitor usage carefully if you are using a paid LLM. This is especially true if you're using the test stage in the repo, I can't stress this enough.
 
 ## Features
 
