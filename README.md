@@ -38,7 +38,7 @@ Storyteller can be applied to a wide range of LLM-driven tasks, including but no
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/storyteller.git
+   git clone https://github.com/tachyon-beep/storyteller.git
    cd storyteller
    ```
 
