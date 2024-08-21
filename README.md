@@ -113,7 +113,7 @@ For a detailed list of planned features and improvements, please see our [TODO l
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome (particularly for plugins) but the development target is quiet volatile. Please see our [Contributors Policy](CONTRIBUTING.md) for more details.
 
 ## License
 
