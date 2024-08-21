@@ -1,3 +1,5 @@
+## Security Policy
+
 Project Status: Pre-Release
 
 This project is currently in a pre-release state, which means it is still under active development. As a result, security updates and bug fixes are provided on a best-effort basis.
