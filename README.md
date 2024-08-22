@@ -31,7 +31,7 @@ Storyteller can be applied to a wide range of LLM-driven tasks, including but no
 
 ## System Requirements
 
-- Python 3.8+
+- Python 3.10+
 - Dependencies listed in `requirements.txt` 
 
 ## Quick Start
