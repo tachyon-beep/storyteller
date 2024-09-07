@@ -1,5 +1,5 @@
 paths:
-  root: "/home/john/storyteller/"
+  root: "/home/john/Storyteller/"
   src: "src/"
   config: "config/"
   data: "data/"

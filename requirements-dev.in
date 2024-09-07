@@ -1,0 +1,36 @@
+# requirements-dev.in
+
+# Include all packages from requirements.txt
+-r requirements.in
+
+# Black: Code formatter to ensure consistent code style
+black
+
+# Flake8: Linting tool to check code quality
+flake8
+
+# isort: Tool to sort and organize import statements
+isort
+
+# pylint: Static code analysis tool for error detection and enforcing coding standards
+pylint
+
+# pytest: Testing framework for writing and running tests
+pytest
+
+# mypy: Static type checker for Python
+mypy
+
+# safety: Checks installed dependencies for known security vulnerabilities
+safety
+
+# pre-commit: Framework for managing and maintaining pre-commit hooks
+pre-commit
+
+# Sphinx: Documentation generator
+Sphinx
+
+# sphinx-rtd-theme: Read the Docs theme for Sphinx documentation
+sphinx-rtd-theme
+
+# Note: Versions are not pinned here. Use pip-compile to generate a pinned requirements-dev.txt

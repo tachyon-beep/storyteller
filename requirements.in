@@ -1,0 +1,30 @@
+# requirements.in
+
+# aiofiles: Asynchronous file operations, used in storage management
+aiofiles
+
+# google-cloud-aiplatform: Interaction with Google's Vertex AI platform
+google-cloud-aiplatform
+
+# jsonschema: JSON schema validation, used in configuration management
+jsonschema
+
+# openai: Interaction with OpenAI's language models
+openai
+
+# python-dateutil: Advanced date and time handling, used in batch storage
+python-dateutil
+
+# PyYAML: YAML parsing and writing, used for configuration files
+pyyaml
+
+# schema: Another library for data validation, used in configuration
+schema
+
+# typing-extensions: Additional typing support, enhances type hinting capabilities
+typing-extensions
+
+# vertexai: Google's library for interacting with Vertex AI, specifically for Gemini models
+vertexai
+
+# Note: Versions are not pinned here. Use pip-compile to generate a pinned requirements.txt
